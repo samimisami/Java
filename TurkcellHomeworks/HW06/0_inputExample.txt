@@ -1,0 +1,67 @@
+https://medium.com/@serhatats/java-logging-best-practices-24d2f0fae3be
+
+Java Logging Best Practices by Serhat Atas
+
+Merhabalar, bu yazımda loglama yaparken, loglarınızı daha anlaşılır, güvenli ve basit hale getirmek için uygulamanız gereken pratiklerden bahsettim. Keyifli okumalar dilerim :)
+
+1.Appender Kuralları
+Appender: Logların nereye ve nasıl kaydedilmesi gerektiğinin belirtildiği eklentilerdir.
+
+
+Yukarıda vermiş olduğumuz örnek Appender, loglama yapıldığı zaman log dosya ismine tarih ekleyerek, dosyanın 50 MB’ı aştığı durumlarda arşive ekler ve yeni bir log dosyası açar. Bir çok farklı Appender türü bulunmaktadır.
+
+
+Yukarıdaki örnekte Appender’ı referans vererek, LogEndpoint sınıfında yapılan error logların belirtmiş olduğumuz FILEOUT Appender kurallarıyla oluşmasını beklemekteyiz.
+
+Appender’ı anladığımıza göre Appender oluştururken dikkat etmemiz gerekenlerden bahsedelim.
+
+Appender oluştururken tercih ettiğiniz Appender türünü mantıklı bir şekilde ihtiyaçlarınızı karşılayacak türden seçin.
+Appender’da patterni belirterek logların hangi formatta kaydedileceğini yapılandırın.
+Appender’da dosya boyut aşımını belirterek loglarınızı tek bir dosya altında toplamamaya çalışın. Dosya büyümesi hem sorun yaratacaktır hemde log kayıtlarını bulmanızı zorlaştıracaktır.
+Appender’da dosya kayıt isimlerine tarih eklemeyi unutmayın. Kayıt ararken işlerinizi kolaylaştıracaktır.
+Farklı işlemler için farklı Appender’lar belirterek loglarınızı ayırmaya çalışın. Örneğin Spring loglarıyla , projenizin loglarını ayrıştırın.
+Bu bir zorunluluk değildir fakat dev ve prod ortamındaki loglama şeklinizi ayrıştırmak için springProfile kullanabilirsiniz.
+Appender’ları test edin.
+2.Log Seviye Kuralları
+Sıklıkla kullanılan ve kullanılması tavsiye edilen 5 farklı loglama seviyesi bulunmaktadır.
+
+ERROR →Sistemin durmasını gerektiren kritik hatalardır.
+
+WARN →Sistemde uyarı veren loglama seviyesidir.
+
+INFO →Bilgi mesajları içeren loglama seviyesidir.
+
+DEBUG →Hata yakalamak için kullanılan loglama seviyesidir.
+
+TRACE →Çok ayrıntılı günlükler için kullanılır genelde tercih etmeyiz.
+
+Farklı seviyeler için farklı Appender’lar kullanabilirsiniz.
+Levelleri kullanırken doğru eşleştirmeye dikkat etmeliyiz.(Info türünde bir logu Error olarak kaydetmek istemezsiniz)
+3.Log Mesajı
+Loglamalarınızda anlamlı mesajlar kullanın. Günlüğünüzde yer alan mesaj o duruma özel olmalı ve durum açıkça belirtilmelidir ki projenizle alakası olmayan bir kişi bile tutmuş olduğunuz log kaydını rahatça anlayabilsin.
+
+4.Exception Loglama
+Loglarınızda mesaja ek olarak, Exception alınan durumlarda log kaydınızda, Exception türünü belirtin, logu daha detaylı ve anlaşılır hale getirecektir. Catch’de (NullPointerException e) aldığımızı düşünelim.
+
+LOGGER.error(“Error occured”,e);
+
+5.Log Transaction ID
+Loglamalarınızda, yapılan işlemlerin takibini kolaylaştırmak için işleme ait ID türeterek bunu log kaydınızda belirtin.
+
+MDC(Mapped Diagnostic Context) kullanarak Transaction ID elde edebilirsiniz.
+
+6.Hassas Veriler
+Log kayıtlarınızda hassas veriler bulundurmayın. Parola, kredi kartı bilgileri, TC kimlik numarası gibi bilgilerin loglarda yer alması size çok büyük bir güvenlik açığı oluşturacaktır. Bu loglamalara başkası erişirse tehlikeli olabilir.
+
+Bu tür durumlarda hassas verileri kaydetmemeyi veya kaydetmek istiyorsanız maskelemeyi kullanmalısınız. Hassas verileri maskelemek için bu adresteki yazıyı okuyabilirsiniz.
+
+7.Log Testi
+Loglamalarınızı test ederek kayıtlarınızın gerçekten tutarlı olup olmadığını kontrol etmeniz gerekir.
+
+8.Log Merkezileştirme
+Projeniz büyüdükçe loglamarınız gittikçe karmaşık hale gelecek ve log kayıtlarınız oldukça büyüyecektir. Bunun için birçok farklı yol ele alınabilir(ÖR:Zaman geçtikçe arşivdeki log kayıtlarını silmek) fakat bunun yerine loglarınızı ELK(Elastic Search) gibi bir monitoring uygulamasından takip edip merkezileştirmek size daha çok avantaj sağlayacaktır.
+
+Sonuç
+Bu yazımda loglama yaparken dikkat etmemiz gereken ve bizi karmaşıklıktan kurtaracak pratiklerden bahsettim. Umarım faydalı bir yazı olmuştur.
+
+Bir sonraki makalede görüşmek üzere :)
