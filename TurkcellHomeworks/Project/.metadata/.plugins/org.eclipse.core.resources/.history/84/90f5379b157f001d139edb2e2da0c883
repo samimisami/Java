@@ -1,0 +1,11 @@
+package spring101.teknikServis.entities;
+
+public class RepairService {
+	
+	
+	private Long id;
+	private String name;
+	private enum operatingSystem {DESKTOP, LAPTOP, MAC;}
+	private Integer duration;
+	
+}

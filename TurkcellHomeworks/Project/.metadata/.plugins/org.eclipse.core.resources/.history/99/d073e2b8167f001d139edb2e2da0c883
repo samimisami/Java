@@ -1,0 +1,13 @@
+package spring101.teknikServis.entities;
+
+
+public class Rendezvous {
+	
+	private Long id;
+	
+//	Date işlemleri öğrenilecek
+	private LocalDate rendezvousDate;
+	
+	private String note;
+	
+}

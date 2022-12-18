@@ -1,0 +1,5 @@
+package spring101.teknikServis.entities;
+
+public class RepairService {
+
+}
