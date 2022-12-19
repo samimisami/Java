@@ -1,0 +1,10 @@
+package spring101.teknikServis.dataAccess;
+
+
+import java.util.List;
+
+import spring101.teknikServis.entities.SystemUser;
+
+public interface SystemUserRepository {
+	List<SystemUser> getAll();
+}

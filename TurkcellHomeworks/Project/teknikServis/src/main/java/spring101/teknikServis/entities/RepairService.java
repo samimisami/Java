@@ -20,6 +20,6 @@ public class RepairService {
 	private enum operatingSystem {DESKTOP, LAPTOP, MAC;}
 	private Integer duration;
 	
-//	duration nasıl işletim sistemine göre değişecek, öğrenilecek
+//	duration nasıl işletim sistemine göre değişecek, düşünülecek
 	
 }
