@@ -1,0 +1,18 @@
+package spring101.teknikServis.business.abstracts;
+
+import java.util.List;
+
+import spring101.teknikServis.entities.SystemUser;
+import spring101.teknikServis.webApi.SystemUserController;
+
+public interface SystemUserService {
+	
+	SystemUser save(SystemUserController systemUserController)
+	
+	List<SystemUser> getAll();
+
+	static List<SystemUser> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

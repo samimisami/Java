@@ -1,0 +1,5 @@
+package spring101.teknikServis.webApi.dto;
+
+public class SystemUserDto {
+
+}

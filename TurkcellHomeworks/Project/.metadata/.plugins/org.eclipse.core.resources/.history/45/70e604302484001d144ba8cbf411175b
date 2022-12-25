@@ -1,0 +1,9 @@
+package spring101.teknikServis.business.abstracts;
+
+import java.util.List;
+
+import spring101.teknikServis.entities.SystemUser;
+
+public interface SystemUserService {
+	List<SystemUser> getAll();
+}

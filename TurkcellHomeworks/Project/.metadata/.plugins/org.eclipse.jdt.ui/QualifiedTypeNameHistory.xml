@@ -8,14 +8,18 @@
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
     <fullyQualifiedTypeName name="org.hibernate.annotations.OnDelete"/>
-    <fullyQualifiedTypeName name="spring101.teknikServis.entities.SystemUser"/>
     <fullyQualifiedTypeName name="antlr.collections.List"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
     <fullyQualifiedTypeName name="javax.persistence.Table"/>
-    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
     <fullyQualifiedTypeName name="lombok.NoArgsConstructor"/>
     <fullyQualifiedTypeName name="javax.persistence.Column"/>
     <fullyQualifiedTypeName name="spring101.teknikServis.entities.RepairService"/>
     <fullyQualifiedTypeName name="spring101.teknikServis.entities.Rendezvous"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="spring101.teknikServis.entities.SystemUser"/>
+    <fullyQualifiedTypeName name="spring101.teknikServis.dataAccess.SystemUserRepository"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="lombok.AllArgsConstructor"/>
+    <fullyQualifiedTypeName name="spring101.teknikServis.business.abstracts.SystemUserService"/>
 </qualifiedTypeNameHistroy>

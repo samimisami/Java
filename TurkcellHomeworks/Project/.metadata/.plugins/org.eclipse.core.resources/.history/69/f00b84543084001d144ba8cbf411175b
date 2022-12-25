@@ -1,0 +1,21 @@
+package spring101.teknikServis.business.concretes;
+
+import java.util.List;
+
+import lombok.AllArgsConstructor;
+import spring101.teknikServis.business.abstracts.SystemUserService;
+import spring101.teknikServis.dataAccess.SystemUserRepository;
+import spring101.teknikServis.entities.SystemUser;
+
+@AllArgsConstructor
+public class SystemUserManager implements SystemUserService{
+	
+	private SystemUserRepository systemUserRepository;
+	
+	@Override
+	public List<SystemUser> getAll() {
+		// TODO Auto-generated method stub
+		return systemUserRepository.findAll();
+	}
+
+}

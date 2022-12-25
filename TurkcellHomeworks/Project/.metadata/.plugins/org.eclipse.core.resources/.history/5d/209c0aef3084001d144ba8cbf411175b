@@ -1,0 +1,37 @@
+package spring101.teknikServis.business.concretes;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import lombok.AllArgsConstructor;
+import spring101.teknikServis.business.abstracts.SystemUserService;
+import spring101.teknikServis.dataAccess.SystemUserRepository;
+import spring101.teknikServis.entities.SystemUser;
+import spring101.teknikServis.webApi.SystemUserController;
+
+@AllArgsConstructor
+@Service
+public class SystemUserManager implements SystemUserService{
+	
+	@Autowired
+	private SystemUserRepository systemUserRepository;
+
+	@Override
+	public SystemUser save(SystemUserController systemUserController) {
+		SystemUser systemUser = new SystemUser(systemUserController.getEmail(),
+				systemUserController.getUsername(),
+				systemUserController.getPassword(),
+				null)
+				
+		return null;
+	}
+	
+	@Override
+	public List<SystemUser> getAll() {
+		// TODO Auto-generated method stub
+		return systemUserRepository.findAll();
+	}
+
+}

@@ -1,0 +1,18 @@
+package spring101.teknikServis.webApi;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import lombok.AllArgsConstructor;
+import spring101.teknikServis.business.abstracts.SystemUserService;
+
+@RestController
+@RequestMapping("/api/rendezvous")
+@AllArgsConstructor
+public class RendezvousController {
+	private SystemUserService systemUserService;
+	
+	public List<SystemUser> getAll() {
+		return SystemUserService.findAll();
+	}
+}
