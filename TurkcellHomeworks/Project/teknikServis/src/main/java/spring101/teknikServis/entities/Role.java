@@ -21,6 +21,7 @@ public class Role {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+//	private enum name {DESKTOP, LAPTOP, MAC;}
 	private String name;
 
 	public Role(String name) {

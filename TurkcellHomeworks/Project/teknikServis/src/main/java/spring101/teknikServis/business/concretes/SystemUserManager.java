@@ -3,13 +3,14 @@ package spring101.teknikServis.business.concretes;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.management.relation.Role;
+
 
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
 import spring101.teknikServis.business.abstracts.SystemUserService;
 import spring101.teknikServis.dataAccess.SystemUserRepository;
+import spring101.teknikServis.entities.Role;
 import spring101.teknikServis.entities.SystemUser;
 import spring101.teknikServis.webApi.dto.SystemUserDto;
 

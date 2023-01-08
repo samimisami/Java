@@ -1,9 +1,8 @@
 package spring101.teknikServis.entities;
 
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.List;
 
-import javax.management.relation.Role;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,8 +43,10 @@ public class SystemUser {
 	@JoinTable(name = "users_roles",
 	joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
 	inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-	private Collection<Role> roles;
-
+	private List<Role> roles = new ArrayList<>();
+//	private ArrayList<Role> roles;
+//	private Collection<Role> roles; //Neden Collection?
+	
 	public SystemUser(String email, String username, String password, List<Role> list) {
 		super();
 		this.email = email;

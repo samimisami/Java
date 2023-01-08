@@ -3,15 +3,26 @@ package spring101.teknikServis.entities;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Table(name="rendezvous") //unique constraint rendezvousDate
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Rendezvous {
 	
 	@Id
@@ -22,7 +33,6 @@ public class Rendezvous {
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private RepairService repairService;
 	
-//	Date işlemleri öğrenilecek
 	private LocalDate rendezvousDate;
 	
 	@Column(length = 300)
