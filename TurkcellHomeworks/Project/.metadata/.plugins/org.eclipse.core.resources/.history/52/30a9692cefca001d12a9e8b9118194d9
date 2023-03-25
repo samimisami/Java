@@ -1,0 +1,34 @@
+package spring101.teknikServis.webApi;
+
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import spring101.teknikServis.business.abstracts.SystemUserService;
+import spring101.teknikServis.business.concretes.SystemUserManager;
+import spring101.teknikServis.webApi.dto.SystemUserDto;
+
+@RestController
+@RequestMapping("/api/user")
+@Getter
+@Setter
+@AllArgsConstructor
+public class SystemUserController {
+	
+//	private SystemUserManager systemUserManager;
+	private SystemUserService systemUserService;
+	
+	@RequestMapping(value="/add",method=RequestMethod.POST,consumes="application/json")
+	public String addUserAccount(@ModelAttribute("user") SystemUserDto systemUserDto){
+		
+//		systemUserManager.save(systemUserDto);
+		systemUserService.save(systemUserDto);
+		
+		return "redirect:/registration?success";
+	}
+	
+}
